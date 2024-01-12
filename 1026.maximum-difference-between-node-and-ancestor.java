@@ -43,7 +43,7 @@ class Pair {
 }
 
 class Solution {
-    private final int MIN_INFINITY = -1000000;
+    private final int MIN_INFINITY = -1;
     private int ans = MIN_INFINITY;
 
     public int maxAncestorDiff(TreeNode root) {
