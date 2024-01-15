@@ -7,43 +7,27 @@
 // @lc code=start
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 class Solution
 {
 public:
-    string longestCommonPrefix(vector<string> &strs)
+    string longestCommonPrefix(vector<string> &v)
     {
-        int maxIndex = 202;
         string ans = "";
-        int i;
-        for (i = 0; i < maxIndex; i++)
+        sort(v.begin(), v.end());//ưu tiên bảng chữ cái , a đứng trước b, nếu giống nhau thì ưu tiên bé hơn lên trước
+        int n = v.size();
+        string first = v[0], last = v[n - 1];
+        for (int i = 0; i < min(first.size(), last.size()); i++)
         {
-            if (i >= strs[0].size())
+            if (first[i] != last[i])
             {
-                break;
+                return ans;
             }
-            char c = strs[0][i];
-            int check = true;
-            for (int j = 0; j < strs.size(); j++)
-            {
-                if (strs[j][i] != c)
-                {
-                    check = false;
-                    break;
-                }
-            }
-            if (check == true)
-            {
-                ans = ans + c;
-            }
-            else
-            {
-                break;
-            }
+            ans += first[i];
         }
-
         return ans;
     }
 };
