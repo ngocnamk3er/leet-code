@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <map>
+#include <iostream>
 
 using namespace std;
 
@@ -24,6 +25,10 @@ public:
         {
             countLosers[matches[i][1]]++;
             countWinners[matches[i][0]]++;
+            if (countWinners[matches[i][0]] != 0 && countLosers[matches[i][0]] == 0)
+            {
+                countLosers[matches[i][0]] = 0;
+            }
         }
 
         for (const auto &pair : countLosers)
@@ -32,10 +37,7 @@ public:
             {
                 count[1].push_back(pair.first);
             }
-        }
-        for (const auto &pair : countWinners)
-        {
-            if (pair.second != 0 && countLosers[pair.first] == 0)
+            else if (pair.second == 0)
             {
                 count[0].push_back(pair.first);
             }
