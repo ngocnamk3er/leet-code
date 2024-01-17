@@ -16,8 +16,8 @@ class Solution
 public:
     bool uniqueOccurrences(vector<int> &arr)
     {
-        unordered_map<int, int> map1;
-        unordered_map<int, bool> map2;
+        unordered_map<int, int> map1;//value default = 0;
+        unordered_map<int, bool> map2;// value default = false;
         for (int i = 0; i < arr.size(); i++)
         {
             map1[arr[i]]++;
