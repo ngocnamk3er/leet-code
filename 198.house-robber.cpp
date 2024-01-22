@@ -19,6 +19,7 @@ public:
         if(nums.size() == 1){
             return nums[0];
         }
+        
         int maxInIndexEnd[101] = {0};
 
         int ans = 0;
